@@ -151,14 +151,18 @@ struct RockPaperScissorsView: View {
                 .font(.headline)
                 .foregroundStyle(Color.secondary)
             
-            Text("Your score: \(playerScore)")
-                .font(.headline)
-                .foregroundStyle(Color.secondary)
-     
-            Button("I Won the Round! ✊") {
-                    playerScore = playerScore + 1
-                }
-                .buttonStyle(.borderedProminent)
+            HStack {
+                Text("Your score: \(playerScore)")
+                    .font(.headline)
+                    .foregroundStyle(Color.secondary)
+                
+                Spacer()
+                
+                Text("Computer score: \(computerScore)")
+                    .font(.headline)
+                    .foregroundStyle(Color.secondary)
+            }
+            
             
             
         }
@@ -214,16 +218,28 @@ struct RockPaperScissorsView: View {
         chooseComputerMove()
         roundsPlayed += 1
         
-        // Set this as the default. If you don't tie or win below, you lost!
-        result = "Oh no, you lost!"
-        
+       
         if playerMove == computerMove {
-            // TRY: Change what the game says when there is a tie.
             result = "It's a tie!"
-        } else if playerMove == "Paper" && computerMove == "Rock" { result = "You win! Paper beats rock!"
-        } else if playerMove == "Rock" && computerMove == "Scissors" { result = "You win! Rock beats Scissors!"
-        } else if playerMove == "Scissors" && computerMove == "Paper" { result = "You win! Scissors beats paper!"}
+            return
+        }
         
+        else if playerMove == "Paper" && computerMove == "Rock" {
+            result = "You win! Paper beats rock!"
+            playerScore = playerScore + 1
+        } else if playerMove == "Rock" && computerMove == "Scissors" {
+            result = "You win! Rock beats Scissors!"
+            playerScore = playerScore + 1
+        } else if playerMove == "Scissors" && computerMove == "Paper" {
+            result = "You win! Scissors beats paper!"
+            playerScore = playerScore + 1
+        }
+        
+        else {
+            result = "Oh no, you lost!"
+            computerScore = computerScore + 1
+        }
+
        
                     
         
