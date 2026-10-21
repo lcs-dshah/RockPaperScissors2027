@@ -43,8 +43,13 @@ struct RockPaperScissorsView: View {
     // How many rounds have been played.
     @State var roundsPlayed: Int = 0
     
-    
+    @State var playerScore = 0
+        @State var computerScore = 0
+        
+  
     // MARK: - Computed properties
+    
+    
     
     var body: some View {
         VStack(spacing: 24) {
@@ -145,6 +150,17 @@ struct RockPaperScissorsView: View {
             Text("Rounds played: \(roundsPlayed)")
                 .font(.headline)
                 .foregroundStyle(Color.secondary)
+            
+            Text("Your score: \(playerScore)")
+                .font(.headline)
+                .foregroundStyle(Color.secondary)
+     
+            Button("I Won the Round! ✊") {
+                    playerScore = playerScore + 1
+                }
+                .buttonStyle(.borderedProminent)
+            
+            
         }
         .padding(32)
         .fontDesign(.rounded)
@@ -208,7 +224,8 @@ struct RockPaperScissorsView: View {
         } else if playerMove == "Rock" && computerMove == "Scissors" { result = "You win! Rock beats Scissors!"
         } else if playerMove == "Scissors" && computerMove == "Paper" { result = "You win! Scissors beats paper!"}
         
-        
+       
+                    
         
         
         
