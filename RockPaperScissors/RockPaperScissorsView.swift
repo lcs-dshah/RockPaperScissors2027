@@ -37,6 +37,8 @@ struct RockPaperScissorsView: View {
     @State var computerMove: String = "No move yet"
     @State var computerEmoji: String = "❓"
     
+
+    
     // What happened in the last round.
     @State var result: String = "Let's play!"
     
@@ -45,6 +47,8 @@ struct RockPaperScissorsView: View {
     
     @State var playerScore = 0
         @State var computerScore = 0
+    
+    
         
   
     // MARK: - Computed properties
@@ -239,11 +243,17 @@ struct RockPaperScissorsView: View {
             result = "Oh no, you lost!"
             computerScore = computerScore + 1
         }
-
-       
-                    
         
         
+        
+        if playerScore == 10 {
+            result = "Congratulations! You beat the computer!"
+        }
+        
+        if computerScore == 10 {
+            result = "Oh no, the computer beat you!"
+            
+        }
         
         // This is where the game needs your help.
         // Who won: you, or the computer?
