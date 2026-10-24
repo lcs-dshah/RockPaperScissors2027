@@ -10,9 +10,13 @@ You against the computer. Click a move, and the computer picks one at random.
  
 ## What I added
  
-- Nothing yet. This list grows as I work on Make It Yours.
+- Taught the computer the rules of rock, paper, scissors by adding specific win, tie and loss messages instead of the generic message that someone won.
+- Changed the way the game keeps track of scores so that when the player wins a round they gain a point, when the computer wins it gains a point, and when it's a tie no one gains a point. 
+- Removed rounds played and added a win streak that resets to zero when you lose to the computer.
+- Added text on the screen to say either the player or computer won the game once they reached ten points.
  
 ## Credits
  
 - The starting game was written by Mr. Gordon.#  <#Title#>
+- Win streak: Gemini (in the browser) suggested the lines; I checked them and typed them in.
 
