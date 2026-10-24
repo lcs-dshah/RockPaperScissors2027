@@ -13,6 +13,14 @@
 //  Rock beats scissors, scissors beats paper, and paper beats rock.
 //
 
+//  NEW FOR MAKE IT YOURS
+//  Says who won or if it's a tie.
+//  Keeps track of your and the computers score
+//  Keeps track of the number of rounds you've won in a row.
+
+
+
+
 import SwiftUI
 
 // The picture for each move. These are emoji, so they are just text.
