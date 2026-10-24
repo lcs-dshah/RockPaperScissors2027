@@ -46,7 +46,10 @@ struct RockPaperScissorsView: View {
     @State var roundsPlayed: Int = 0
     
     @State var playerScore = 0
-        @State var computerScore = 0
+    @State var computerScore = 0
+    
+    @State var winStreak: Int = 0
+
     
     
         
@@ -151,7 +154,7 @@ struct RockPaperScissorsView: View {
             // TRY: Change teal to another colour. Change it in the title and the moves box too.
             .tint(Color.teal)
             
-            Text("Rounds played: \(roundsPlayed)")
+            Text("Win streak: \(winStreak)")
                 .font(.headline)
                 .foregroundStyle(Color.secondary)
             
@@ -174,6 +177,8 @@ struct RockPaperScissorsView: View {
         .fontDesign(.rounded)
         // How big the game's window is on the Mac. It can be made taller or wider.
         .frame(minWidth: 520, minHeight: 640)
+        
+        
     }
     
     // MARK: - Functions
@@ -218,49 +223,54 @@ struct RockPaperScissorsView: View {
     }
     
     // Plays one round, once the player has picked a move.
-    func playRound() {
-        chooseComputerMove()
-        roundsPlayed += 1
-        
-       
-        if playerMove == computerMove {
-            result = "It's a tie!"
-            return
-        }
-        
-        else if playerMove == "Paper" && computerMove == "Rock" {
-            result = "You win! Paper beats rock!"
-            playerScore = playerScore + 1
-        } else if playerMove == "Rock" && computerMove == "Scissors" {
-            result = "You win! Rock beats Scissors!"
-            playerScore = playerScore + 1
-        } else if playerMove == "Scissors" && computerMove == "Paper" {
-            result = "You win! Scissors beats paper!"
-            playerScore = playerScore + 1
-        }
-        
-        else {
-            result = "Oh no, you lost!"
-            computerScore = computerScore + 1
-        }
-        
-        
-        
-        if playerScore == 10 {
-            result = "Congratulations! You beat the computer!"
-        }
-        
-        if computerScore == 10 {
-            result = "Oh no, the computer beat you!"
+    // Plays one round, once the player has picked a move.
+        func playRound() {
+            chooseComputerMove()
+            roundsPlayed += 1
             
+            if playerMove == computerMove {
+                result = "It's a tie!"
+                return
+            }
+            
+            else if playerMove == "Paper" && computerMove == "Rock" {
+                result = "You win! Paper beats rock!"
+                playerScore = playerScore + 1
+                winStreak += 1
+            } else if playerMove == "Rock" && computerMove == "Scissors" {
+                result = "You win! Rock beats Scissors!"
+                playerScore = playerScore + 1
+                winStreak += 1
+            } else if playerMove == "Scissors" && computerMove == "Paper" {
+                result = "You win! Scissors beats paper!"
+                playerScore = playerScore + 1
+                winStreak += 1
+            }
+            
+            else {
+                result = "Oh no, you lost!"
+                computerScore = computerScore + 1
+                winStreak = 0
+            }
+            
+            if playerScore == 10 {
+                result = "Congratulations! You beat the computer!"
+            }
+            
+            if computerScore == 10 {
+                result = "Oh no, the computer beat you!"
+            }
         }
+        
+
+
+
+      
         
         // This is where the game needs your help.
         // Who won: you, or the computer?
     }
-}
 
 #Preview {
         RockPaperScissorsView()
     }
-    
