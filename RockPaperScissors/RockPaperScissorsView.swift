@@ -25,10 +25,9 @@ import SwiftUI
 
 // The picture for each move. These are emoji, so they are just text.
 // TRY: Change these to other emoji to give the game a new theme.
-let rockEmoji: String = "🪨"
-let paperEmoji: String = "📄"
-let scissorsEmoji: String = "✂️"
-
+let rockEmoji = "✊"
+let paperEmoji = "✋"
+let scissorsEmoji = "✌️"
 // The game itself: what it remembers, what it shows on the screen,
 // and what it does when you click a button.
 struct RockPaperScissorsView: View {
@@ -50,13 +49,15 @@ struct RockPaperScissorsView: View {
     // What happened in the last round.
     @State var result: String = "Let's play!"
     
+    
     // How many rounds have been played.
     @State var roundsPlayed: Int = 0
-    
     @State var playerScore = 0
     @State var computerScore = 0
-    
     @State var winStreak: Int = 0
+    
+    
+   
 
     
     
@@ -114,6 +115,7 @@ struct RockPaperScissorsView: View {
             Text(result)
                 .font(.largeTitle)
                 .bold()
+                .foregroundStyle(messageColor)
             
             Spacer()
             
@@ -232,12 +234,17 @@ struct RockPaperScissorsView: View {
     
     // Plays one round, once the player has picked a move.
     // Plays one round, once the player has picked a move.
+    
+    @State private var messageColor: Color = Color.white
+    
         func playRound() {
+            
             chooseComputerMove()
             roundsPlayed += 1
             
             if playerMove == computerMove {
                 result = "It's a tie!"
+                messageColor = Color.yellow
                 return
             }
             
@@ -245,28 +252,34 @@ struct RockPaperScissorsView: View {
                 result = "You win! Paper beats rock!"
                 playerScore = playerScore + 1
                 winStreak += 1
+                messageColor = Color.green
             } else if playerMove == "Rock" && computerMove == "Scissors" {
                 result = "You win! Rock beats Scissors!"
                 playerScore = playerScore + 1
                 winStreak += 1
+                messageColor = Color.green
             } else if playerMove == "Scissors" && computerMove == "Paper" {
                 result = "You win! Scissors beats paper!"
                 playerScore = playerScore + 1
                 winStreak += 1
+                messageColor = Color.green
             }
             
             else {
                 result = "Oh no, you lost!"
                 computerScore = computerScore + 1
                 winStreak = 0
+                messageColor = Color.red
             }
             
             if playerScore == 10 {
-                result = "Congratulations! You beat the computer!"
+                result = "Congrats! You won this round!"
+                messageColor = Color.blue
             }
             
             if computerScore == 10 {
-                result = "Oh no, the computer beat you!"
+                result = "Oh no, the computer beat you this round!"
+                messageColor = Color.purple
             }
         }
         
