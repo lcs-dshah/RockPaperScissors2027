@@ -7,6 +7,7 @@ You against the computer. Click a move, and the computer picks one at random.
 1. Click **Rock**, **Paper**, or **Scissors**.
 2. The computer shows its move beside yours.
 3. Rock beats scissors, scissors beats paper, and paper beats rock.
+4. First to 10 points wins the round
  
 ## What I added
  
@@ -19,4 +20,14 @@ You against the computer. Click a move, and the computer picks one at random.
  
 - The starting game was written by Mr. Gordon.#  <#Title#>
 - Win streak: Gemini (in the browser) suggested the lines; I checked them and typed them in.
+
+## Testing
+
+| Test | Chosen input |  Should happen | Did happen |
+| --- | --- | --- | --- |
+| Text on screen after gaining ten points   |  Click buttons until 10 points | Text appears on screen  | Said "Congrats..." or Oh no..." if the computer reached 10 points before the player |
+| Colour of win, tie, loss, and round won or lost changes |  Clicked buttons to win, lose, or tie with computer. Played until 10 points |  Different colour writing for each result |  Colourof text changes depending on the outcome of the rounds/game |
+|  |  |  |  |
+
+
 
