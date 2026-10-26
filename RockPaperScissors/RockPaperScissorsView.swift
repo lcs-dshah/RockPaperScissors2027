@@ -128,7 +128,7 @@ struct RockPaperScissorsView: View {
                                     .font(.system(size: 80))
                                     .foregroundStyle(Color.yellow)
                             } else if computerScore >= 10 {
-                                Image(systemName: "face.sad.fill")
+                                Image(systemName: "hand.thumbsdown.fill")
                                     .font(.system(size: 80))
                                     .foregroundStyle(Color.blue)
                             }
