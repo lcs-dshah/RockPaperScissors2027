@@ -121,48 +121,73 @@ struct RockPaperScissorsView: View {
             
             // One button for each move the player can make.
             // The code inside the braces runs when that button is clicked.
-            Text("Choose your move")
-                .font(.headline)
-                .foregroundStyle(Color.secondary)
-            
-            HStack(spacing: 12) {
-                Button {
-                    chooseRock()
-                } label: {
-                    VStack {
-                        Text(rockEmoji)
-                            .font(.system(size: 44))
-                        Text("Rock")
-                    }
-                    .frame(maxWidth: .infinity)
-                }
-                
-                Button {
-                    choosePaper()
-                } label: {
-                    VStack {
-                        Text(paperEmoji)
-                            .font(.system(size: 44))
-                        Text("Paper")
-                    }
-                    .frame(maxWidth: .infinity)
-                }
-                
-                Button {
-                    chooseScissors()
-                } label: {
-                    VStack {
-                        Text(scissorsEmoji)
-                            .font(.system(size: 44))
-                        Text("Scissors")
-                    }
-                    .frame(maxWidth: .infinity)
-                }
-            }
-            .buttonStyle(.bordered)
-            .font(.headline)
-            // TRY: Change teal to another colour. Change it in the title and the moves box too.
-            .tint(Color.teal)
+            // Show the "Start New Game" button and an icon if either player reaches 10 points.
+                        if playerScore >= 10 || computerScore >= 10 {
+                            if playerScore >= 10 {
+                                Image(systemName: "trophy.fill")
+                                    .font(.system(size: 80))
+                                    .foregroundStyle(Color.yellow)
+                            } else if computerScore >= 10 {
+                                Image(systemName: "face.sad.fill")
+                                    .font(.system(size: 80))
+                                    .foregroundStyle(Color.blue)
+                            }
+                            
+                            Button {
+                                startNewGame()
+                            } label: {
+                                Text("Start New Game")
+                                    .font(.title2)
+                                    .bold()
+                                    .padding(.vertical, 8)
+                                    .padding(.horizontal, 16)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(Color.teal)
+                        } else {
+                            // One button for each move the player can make.
+                            Text("Choose your move")
+                                .font(.headline)
+                                .foregroundStyle(Color.secondary)
+                            
+                            HStack(spacing: 12) {
+                                Button {
+                                    chooseRock()
+                                } label: {
+                                    VStack {
+                                        Text(rockEmoji)
+                                            .font(.system(size: 44))
+                                        Text("Rock")
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                }
+                                
+                                Button {
+                                    choosePaper()
+                                } label: {
+                                    VStack {
+                                        Text(paperEmoji)
+                                            .font(.system(size: 44))
+                                        Text("Paper")
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                }
+                                
+                                Button {
+                                    chooseScissors()
+                                } label: {
+                                    VStack {
+                                        Text(scissorsEmoji)
+                                            .font(.system(size: 44))
+                                        Text("Scissors")
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                }
+                            }
+                            .buttonStyle(.bordered)
+                            .font(.headline)
+                            .tint(Color.teal)
+                        }
             
             Text("Win streak: \(winStreak)")
                 .font(.headline)
@@ -283,8 +308,19 @@ struct RockPaperScissorsView: View {
             }
         }
         
-
-
+   
+    // Resets all game values back to their starting state.
+        func startNewGame() {
+            playerScore = 0
+            computerScore = 0
+            winStreak = 0
+            roundsPlayed = 0
+            result = ""
+            playerMove = ""
+            computerMove = ""
+            playerEmoji = ""
+            computerEmoji = ""
+        }
 
       
         
