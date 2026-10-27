@@ -40,9 +40,9 @@ struct RockPaperScissorsView: View {
     // The name of each move, such as "Rock", and the emoji that shows it.
     // Before the first round, nobody has picked a move yet.
     @State var playerMove: String = "No move yet"
-    @State var playerEmoji: String = "❓"
+    @State var playerEmoji: String = "🤷"
     @State var computerMove: String = "No move yet"
-    @State var computerEmoji: String = "❓"
+    @State var computerEmoji: String = "🤷"
     
 
     
@@ -108,7 +108,7 @@ struct RockPaperScissorsView: View {
                 .frame(maxWidth: .infinity)
             }
             .padding(.vertical)
-            .background(Color.teal.opacity(0.15))
+            .background(Color.blue.opacity(0.15))
             .clipShape(RoundedRectangle(cornerRadius: 24))
             
             // The result of the round.
@@ -186,7 +186,7 @@ struct RockPaperScissorsView: View {
                             }
                             .buttonStyle(.bordered)
                             .font(.headline)
-                            .tint(Color.teal)
+                            .tint(Color.orange)
                         }
             
             Text("Win streak: \(winStreak)")
