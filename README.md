@@ -29,7 +29,7 @@ You against the computer. Click a move, and the computer picks one at random.
 | --- | --- | --- | --- |
 | Text on screen after gaining ten points   |  Click buttons until 10 points | Text appears on screen  | Said "Congrats..." or Oh no..." if the computer reached 10 points before the player |
 | Colour of win, tie, loss, and round won or lost changes |  Clicked buttons to win, lose, or tie with computer. Played until 10 points |  Different colour writing for each result |  Colourof text changes depending on the outcome of the rounds/game |
-| Start new game button resets the scores and win streask to zero |  |  |  |
+| Start new game button resets the scores and win streask to zero | Played a round until 10 points were reached | Start new game button comes up and resets everything to zero | Button reset everything to zero |
 
 
 
