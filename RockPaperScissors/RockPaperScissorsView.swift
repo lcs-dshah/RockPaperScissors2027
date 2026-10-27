@@ -74,7 +74,7 @@ struct RockPaperScissorsView: View {
             Text("Rock Paper Scissors")
                 .font(.largeTitle)
                 .bold()
-                .foregroundStyle(Color.teal)
+                .foregroundStyle(Color.indigo)
             // Shrink the title a little if it does not fit on one line.
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
@@ -147,7 +147,7 @@ struct RockPaperScissorsView: View {
                         } else {
                             // One button for each move the player can make.
                             Text("Choose your move")
-                                .font(.headline)
+                                .font(.title2)
                                 .foregroundStyle(Color.secondary)
                             
                             HStack(spacing: 12) {
@@ -190,18 +190,18 @@ struct RockPaperScissorsView: View {
                         }
             
             Text("Win streak: \(winStreak)")
-                .font(.headline)
+                .font(.title)
                 .foregroundStyle(Color.secondary)
             
             HStack {
                 Text("Your score: \(playerScore)")
-                    .font(.headline)
+                    .font(.title)
                     .foregroundStyle(Color.secondary)
                 
                 Spacer()
                 
                 Text("Computer score: \(computerScore)")
-                    .font(.headline)
+                    .font(.title)
                     .foregroundStyle(Color.secondary)
             }
             
