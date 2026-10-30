@@ -17,10 +17,16 @@ You against the computer. Click a move, and the computer picks one at random.
 - Added text on the screen to say either the player or computer won the game once they reached ten points. 
 - Added a new view when either the player or computer reaches ten points with a Start new game button to reset the round.
 
+## How it works
+
+**First to 10 **- This feature uses three variables: playerScore, computerScore, and result.
+The decision is done using an if statement with the comparison operator >= (greater than or equal to) and the | | (or) operator. The line if playerScore >= 10 | | computerScore >= 10 checks whether either player has reached a score of 10. Inside that check, separate if and else if conditions check which score reached 10 to display the correct message and SF Symbol.
+An if statement with comparison operators was chosen over the remainder operator % because we need to check if a specific number was reached or exceeded, rather than checking for repeating patterns or multiples.
+
  
 ## Credits
  
-- The starting game was written by Mr. Gordon.#  <#Title#>
+- The starting game was written by Mr. Gordon.
 - Win streak: Gemini (in the browser) suggested the lines; I checked them and typed them in.
 
 ## Testing
@@ -30,6 +36,12 @@ You against the computer. Click a move, and the computer picks one at random.
 | Text on screen after gaining ten points   |  Click buttons until 10 points | Text appears on screen  | Said "Congrats..." or Oh no..." if the computer reached 10 points before the player |
 | Colour of win, tie, loss, and round won or lost changes |  Clicked buttons to win, lose, or tie with computer. Played until 10 points |  Different colour writing for each result |  Colourof text changes depending on the outcome of the rounds/game |
 | Start new game button resets the scores and win streask to zero | Played a round until 10 points were reached | Start new game button comes up and resets everything to zero | Button reset everything to zero |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
 
 
 

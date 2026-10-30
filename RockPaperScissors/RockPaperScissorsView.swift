@@ -28,6 +28,10 @@ import SwiftUI
 let rockEmoji = "✊"
 let paperEmoji = "✋"
 let scissorsEmoji = "✌️"
+
+// The target score needed to win the game.
+    let targetScore: Int = 10
+
 // The game itself: what it remembers, what it shows on the screen,
 // and what it does when you click a button.
 struct RockPaperScissorsView: View {
@@ -121,13 +125,14 @@ struct RockPaperScissorsView: View {
             
             // One button for each move the player can make.
             // The code inside the braces runs when that button is clicked.
-            // Show the "Start New Game" button and an icon if either player reaches 10 points.
-                        if playerScore >= 10 || computerScore >= 10 {
-                            if playerScore >= 10 {
+           
+            // Show the "Start New Game" button and an icon if either player reaches the winning score.
+                        if playerScore >= targetScore || computerScore >= targetScore {
+                            if playerScore >= targetScore {
                                 Image(systemName: "trophy.fill")
                                     .font(.system(size: 80))
                                     .foregroundStyle(Color.yellow)
-                            } else if computerScore >= 10 {
+                            } else if computerScore >= targetScore {
                                 Image(systemName: "hand.thumbsdown.fill")
                                     .font(.system(size: 80))
                                     .foregroundStyle(Color.blue)
@@ -297,15 +302,15 @@ struct RockPaperScissorsView: View {
                 messageColor = Color.red
             }
             
-            if playerScore == 10 {
-                result = "Congrats! You won this round!"
-                messageColor = Color.blue
-            }
-            
-            if computerScore == 10 {
-                result = "Oh no, the computer beat you this round!"
-                messageColor = Color.purple
-            }
+            if playerScore == targetScore {
+                            result = "Congrats! You won this round!"
+                            messageColor = Color.blue
+                        }
+                        
+                        if computerScore == targetScore {
+                            result = "Oh no, the computer beat you this round!"
+                            messageColor = Color.purple
+                        }
         }
         
    
