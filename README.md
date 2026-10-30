@@ -36,12 +36,12 @@ An if statement with comparison operators was chosen over the remainder operator
 | Text on screen after gaining ten points   |  Click buttons until 10 points | Text appears on screen  | Said "Congrats..." or Oh no..." if the computer reached 10 points before the player |
 | Colour of win, tie, loss, and round won or lost changes |  Clicked buttons to win, lose, or tie with computer. Played until 10 points |  Different colour writing for each result |  Colourof text changes depending on the outcome of the rounds/game |
 | Start new game button resets the scores and win streask to zero | Played a round until 10 points were reached | Start new game button comes up and resets everything to zero | Button reset everything to zero |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| Paper beats rock |  Computer fixed at 1 (Rock). I choose Paper.|  You win! Paper beats rock!” in green; my score and win streak each go up by 1.| You win! Paper beats rock!” in green; my score and win streak each go up by 1.| Rock beats scissors |
+| Computer fixed at 3 (Scissors). I choose Rock. |  “You win! Rock beats Scissors!” in green; my score and win streak each go up by 1.| “You win! Rock beats Scissors!” in green; my score and win streak each go up by 1. | Scissors beats paper |
+| Computer fixed at 2 (Paper). I choose Scissors. | “You win! Scissors beats paper!” in green; my score and win streak each go up by 1. | “You win! Scissors beats paper!” in green; my score and win streak each go up by 1. | A loss |
+| Computer fixed at 2 (Paper). I choose Rock. | “Oh no, you lost!” in red; computer score goes up by 1, and win streak resets to 0. | “Oh no, you lost!” in red; computer score goes up by 1, and win streak resets to 0. | A tie |
+| Computer fixed at 1 (Rock). I choose Rock. | “It's a tie!” in yellow; scores and win streak stay the same. | “It's a tie!” in yellow; scores and win streak stay the same. | One short of the edge | Computer fixed at 1. I choose Paper 9 times.| “You win! Paper beats rock!” in green; player score reaches 9; move buttons remain visible. | “You win! Paper beats rock!” in green; player score reaches 9; move buttons remain visible. | At the edge |
+| Computer fixed at 1. I choose Paper 10 times. | “Congrats! You won this round!” in blue; player score reaches 10; move buttons disappear, replaced by trophy icon and "Start New Game" button. | “Congrats! You won this round!” in blue; player score reaches 10; move buttons disappear, replaced by trophy icon and "Start New Game" button. |  
 
 
 
