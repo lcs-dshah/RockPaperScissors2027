@@ -33,6 +33,7 @@ let scissorsEmoji = "✌️"
 // The target score needed to win the game.
     let targetScore: Int = 10
 
+
 // The game itself: what it remembers, what it shows on the screen,
 // and what it does when you click a button.
 struct RockPaperScissorsView: View {
@@ -61,6 +62,8 @@ struct RockPaperScissorsView: View {
     @State var computerScore = 0
     // The current number of consecutive player wins
     @State var winStreak: Int = 0
+    // The highest win streak reached during this session.
+    @State private var bestStreak: Int = 0
     
     
    
@@ -124,6 +127,14 @@ struct RockPaperScissorsView: View {
                 .foregroundStyle(messageColor)
             
             Spacer()
+            
+            HStack {
+                            Text("Win streak: \(winStreak)")
+                            Spacer()
+                            Text("Best streak: \(bestStreak)")
+                        }
+                        .font(.title2)
+                        .foregroundStyle(Color.secondary)
             
             // One button for each move the player can make.
             // The code inside the braces runs when that button is clicked.
@@ -196,9 +207,7 @@ struct RockPaperScissorsView: View {
                             .tint(Color.orange)
                         }
             
-            Text("Win streak: \(winStreak)")
-                .font(.title)
-                .foregroundStyle(Color.secondary)
+           
             
             HStack {
                 Text("Your score: \(playerScore)")
@@ -267,11 +276,23 @@ struct RockPaperScissorsView: View {
         }
     }
     
+    // Updates the current win streak and sets a new best streak high score.
+        func updateStreak(won: Bool) {
+            if won {
+                winStreak += 1
+                if winStreak > bestStreak {
+                    bestStreak = winStreak
+                }
+            } else {
+                winStreak = 0
+            }
+        }
+    
     // Plays one round, once the player has picked a move.
     // Plays one round, once the player has picked a move.
     
     // The text colour of the round result
-    @State private var messageColor: Color = Color.white
+    @State private var messageColor: Color = Color.primary
     
         func playRound() {
             
@@ -286,17 +307,17 @@ struct RockPaperScissorsView: View {
             else if playerMove == "Paper" && computerMove == "Rock" {
                 result = "You win! Paper beats rock!"
                 playerScore = playerScore + 1
-                winStreak += 1
+                updateStreak(won: true)
                 messageColor = Color.green
             } else if playerMove == "Rock" && computerMove == "Scissors" {
                 result = "You win! Rock beats Scissors!"
                 playerScore = playerScore + 1
-                winStreak += 1
+                updateStreak(won: true)
                 messageColor = Color.green
             } else if playerMove == "Scissors" && computerMove == "Paper" {
                 result = "You win! Scissors beats paper!"
                 playerScore = playerScore + 1
-                winStreak += 1
+                updateStreak(won: true)
                 messageColor = Color.green
             }
             
