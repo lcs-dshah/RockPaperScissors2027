@@ -24,11 +24,6 @@ The decision is done using an if statement with the comparison operator >= (grea
 An if statement with comparison operators was chosen over the remainder operator % because we need to check if a specific number was reached or exceeded, rather than checking for repeating patterns or multiples.
 
  
-## Credits
- 
-- The starting game was written by Mr. Gordon.
-- Win streak: Gemini (in the browser) suggested the lines; I checked them and typed them in.
-
 ## Testing
 
 | Test | Chosen input |  Should happen | Did happen |
@@ -42,6 +37,11 @@ An if statement with comparison operators was chosen over the remainder operator
 | Computer fixed at 2 (Paper). I choose Rock. | “Oh no, you lost!” in red; computer score goes up by 1, and win streak resets to 0. | “Oh no, you lost!” in red; computer score goes up by 1, and win streak resets to 0. | A tie |
 | Computer fixed at 1 (Rock). I choose Rock. | “It's a tie!” in yellow; scores and win streak stay the same. | “It's a tie!” in yellow; scores and win streak stay the same. | One short of the edge | Computer fixed at 1. I choose Paper 9 times.| “You win! Paper beats rock!” in green; player score reaches 9; move buttons remain visible. | “You win! Paper beats rock!” in green; player score reaches 9; move buttons remain visible. | At the edge |
 | Computer fixed at 1. I choose Paper 10 times. | “Congrats! You won this round!” in blue; player score reaches 10; move buttons disappear, replaced by trophy icon and "Start New Game" button. | “Congrats! You won this round!” in blue; player score reaches 10; move buttons disappear, replaced by trophy icon and "Start New Game" button. |  
+
+## Credits
+ 
+- The starting game was written by Mr. Gordon.
+- Win streak: Gemini (in the browser) suggested the lines; I checked them and typed them in.
 
 
 

@@ -17,7 +17,8 @@
 //  Says who won or if it's a tie.
 //  Keeps track of your and the computers score
 //  Keeps track of the number of rounds you've won in a row.
-
+// Plays Rock Paper Scissors against the computer.
+// Keeps track of scores, win streaks, and determines the overall winner when a player reaches 10 points.
 
 
 
@@ -54,10 +55,11 @@ struct RockPaperScissorsView: View {
     @State var result: String = "Let's play!"
     
     
-    // How many rounds have been played.
-    @State var roundsPlayed: Int = 0
+    // The player's total score
     @State var playerScore = 0
+    // The computer's totsl score
     @State var computerScore = 0
+    // The current number of consecutive player wins
     @State var winStreak: Int = 0
     
     
@@ -126,73 +128,8 @@ struct RockPaperScissorsView: View {
             // One button for each move the player can make.
             // The code inside the braces runs when that button is clicked.
            
-            // Show the "Start New Game" button and an icon if either player reaches the winning score.
-                        if playerScore >= targetScore || computerScore >= targetScore {
-                            if playerScore >= targetScore {
-                                Image(systemName: "trophy.fill")
-                                    .font(.system(size: 80))
-                                    .foregroundStyle(Color.yellow)
-                            } else if computerScore >= targetScore {
-                                Image(systemName: "hand.thumbsdown.fill")
-                                    .font(.system(size: 80))
-                                    .foregroundStyle(Color.blue)
-                            }
-                            
-                            Button {
-                                startNewGame()
-                            } label: {
-                                Text("Start New Game")
-                                    .font(.title2)
-                                    .bold()
-                                    .padding(.vertical, 8)
-                                    .padding(.horizontal, 16)
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .tint(Color.teal)
-                        } else {
-                            // One button for each move the player can make.
-                            Text("Choose your move")
-                                .font(.title2)
-                                .foregroundStyle(Color.secondary)
-                            
-                            HStack(spacing: 12) {
-                                Button {
-                                    chooseRock()
-                                } label: {
-                                    VStack {
-                                        Text(rockEmoji)
-                                            .font(.system(size: 44))
-                                        Text("Rock")
-                                    }
-                                    .frame(maxWidth: .infinity)
-                                }
-                                
-                                Button {
-                                    choosePaper()
-                                } label: {
-                                    VStack {
-                                        Text(paperEmoji)
-                                            .font(.system(size: 44))
-                                        Text("Paper")
-                                    }
-                                    .frame(maxWidth: .infinity)
-                                }
-                                
-                                Button {
-                                    chooseScissors()
-                                } label: {
-                                    VStack {
-                                        Text(scissorsEmoji)
-                                            .font(.system(size: 44))
-                                        Text("Scissors")
-                                    }
-                                    .frame(maxWidth: .infinity)
-                                }
-                            }
-                            .buttonStyle(.bordered)
-                            .font(.headline)
-                            .tint(Color.orange)
-                        }
+            // Plays Rock Paper Scissors against the computer.
+            // Keeps track of scores, win streaks, and determines the overall winner when a player reaches 10 points.
             
             Text("Win streak: \(winStreak)")
                 .font(.title)
@@ -265,12 +202,12 @@ struct RockPaperScissorsView: View {
     // Plays one round, once the player has picked a move.
     // Plays one round, once the player has picked a move.
     
+    // The text colour of the round result
     @State private var messageColor: Color = Color.white
     
         func playRound() {
             
-            chooseComputerMove()
-            roundsPlayed += 1
+           
             
             if playerMove == computerMove {
                 result = "It's a tie!"
@@ -319,18 +256,16 @@ struct RockPaperScissorsView: View {
             playerScore = 0
             computerScore = 0
             winStreak = 0
-            roundsPlayed = 0
-            result = ""
-            playerMove = ""
-            computerMove = ""
-            playerEmoji = ""
-            computerEmoji = ""
+            result = "🤷"
+            playerMove = "🤷"
+            computerMove = "🤷"
+            playerEmoji = "🤷"
+            computerEmoji = "🤷"
         }
 
       
         
-        // This is where the game needs your help.
-        // Who won: you, or the computer?
+       
     }
 
 #Preview {
