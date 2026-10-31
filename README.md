@@ -16,6 +16,8 @@ You against the computer. Click a move, and the computer picks one at random.
 - Removed rounds played and added a win streak that resets to zero when you lose to the computer.
 - Added text on the screen to say either the player or computer won the game once they reached ten points. 
 - Added a new view when either the player or computer reaches ten points with a Start new game button to reset the round.
+- Added a best streak that keeps track of your highest win streak and stays until you close the game.
+
 
 ## How it works
 
