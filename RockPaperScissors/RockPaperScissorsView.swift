@@ -127,9 +127,74 @@ struct RockPaperScissorsView: View {
             
             // One button for each move the player can make.
             // The code inside the braces runs when that button is clicked.
+        
            
-            // Plays Rock Paper Scissors against the computer.
-            // Keeps track of scores, win streaks, and determines the overall winner when a player reaches 10 points.
+            // Show the "Start New Game" button and an icon if either player reaches the winning score.
+            if playerScore >= targetScore || computerScore >= targetScore {
+                            if playerScore >= targetScore {
+                                Image(systemName: "trophy.fill")
+                                    .font(.system(size: 80))
+                                    .foregroundStyle(Color.yellow)
+                            } else if computerScore >= targetScore {
+                                Image(systemName: "hand.thumbsdown.fill")
+                                    .font(.system(size: 80))
+                                    .foregroundStyle(Color.blue)
+                            }
+                            
+                            Button {
+                                startNewGame()
+                            } label: {
+                                Text("Start New Game")
+                                    .font(.title2)
+                                    .bold()
+                                    .padding(.vertical, 8)
+                                    .padding(.horizontal, 16)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(Color.teal)
+                        } else {
+                            Text("Choose your move")
+                                .font(.title2)
+                                .foregroundStyle(Color.secondary)
+                            
+                            HStack(spacing: 12) {
+                                Button {
+                                    chooseRock()
+                                } label: {
+                                    VStack {
+                                        Text(rockEmoji)
+                                            .font(.system(size: 44))
+                                        Text("Rock")
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                }
+                                
+                                Button {
+                                    choosePaper()
+                                } label: {
+                                    VStack {
+                                        Text(paperEmoji)
+                                            .font(.system(size: 44))
+                                        Text("Paper")
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                }
+                                
+                                Button {
+                                    chooseScissors()
+                                } label: {
+                                    VStack {
+                                        Text(scissorsEmoji)
+                                            .font(.system(size: 44))
+                                        Text("Scissors")
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                }
+                            }
+                            .buttonStyle(.bordered)
+                            .font(.headline)
+                            .tint(Color.orange)
+                        }
             
             Text("Win streak: \(winStreak)")
                 .font(.title)
@@ -164,6 +229,7 @@ struct RockPaperScissorsView: View {
     func chooseRock() {
         playerMove = "Rock"
         playerEmoji = rockEmoji
+        chooseComputerMove()
         playRound()
     }
     
@@ -171,6 +237,7 @@ struct RockPaperScissorsView: View {
     func choosePaper() {
         playerMove = "Paper"
         playerEmoji = paperEmoji
+        chooseComputerMove()
         playRound()
     }
     
@@ -178,6 +245,7 @@ struct RockPaperScissorsView: View {
     func chooseScissors() {
         playerMove = "Scissors"
         playerEmoji = scissorsEmoji
+        chooseComputerMove()
         playRound()
     }
     
@@ -256,7 +324,7 @@ struct RockPaperScissorsView: View {
             playerScore = 0
             computerScore = 0
             winStreak = 0
-            result = "🤷"
+            result = ""
             playerMove = "🤷"
             computerMove = "🤷"
             playerEmoji = "🤷"
@@ -265,7 +333,7 @@ struct RockPaperScissorsView: View {
 
       
         
-       
+      
     }
 
 #Preview {
